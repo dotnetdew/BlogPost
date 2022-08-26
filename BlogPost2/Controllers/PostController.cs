@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BlogPost2.Data;
 using BlogPost2.Models;
+using Microsoft.Extensions.Hosting;
 
 namespace BlogPost2.Controllers
 {
@@ -22,7 +23,7 @@ namespace BlogPost2.Controllers
         // GET: Post
         public async Task<IActionResult> Index()
         {
-              return _context.Posts != null ? 
+            return _context.Posts != null ?
                           View(await _context.Posts.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Posts'  is null.");
         }
